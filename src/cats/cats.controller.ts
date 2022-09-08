@@ -9,7 +9,6 @@ export class CatsController {
 
   @Post()
   async createCat(@Body() cat: CreateCatDto) {
-    console.log('body: ', cat);
     return this.catService.create(cat);
   }
 
@@ -20,13 +19,11 @@ export class CatsController {
 
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<Cat> {
-    console.log('id: ', id);
     return this.catService.findCat(id);
   }
 
   @Delete(':id')
   async delete(@Param('id') id: string) {
-    console.log('id: ', id);
     return this.catService.delete(id);
   }
 }
