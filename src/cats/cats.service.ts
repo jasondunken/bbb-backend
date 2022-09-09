@@ -18,7 +18,7 @@ export class CatsService {
     return this.catModel.find().lean().exec();
   }
 
-  async findCat(id: string) {
+  async findOne(id: string) {
     return this.catModel.findOne({ _id: id }).exec();
   }
 

@@ -5,9 +5,14 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { CatsModule } from './cats/cats.module';
+import { JournalsModule } from './journals/journals.module';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://localhost/testdb'), CatsModule],
+  imports: [
+    MongooseModule.forRoot('mongodb://localhost/testdb'),
+    CatsModule,
+    JournalsModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
