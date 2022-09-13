@@ -12,16 +12,6 @@ import { CreateUserDto } from "./dto/user-create.dto";
 export class UsersService {
     constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
-    async create(createUserDto: CreateUserDto): Promise<User> {
-        const hash = await argon.hash(createUserDto.password);
-        const createdUser = await this.userModel.create({
-            userName: createUserDto.userName,
-            email: createUserDto.email,
-            password: hash,
-        });
-        return createdUser._id;
-    }
-
     async getAll(): Promise<User[]> {
         return this.userModel.find().lean().exec();
     }
