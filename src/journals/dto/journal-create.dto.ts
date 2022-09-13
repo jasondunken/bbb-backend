@@ -1,16 +1,18 @@
-import { UserDto } from "src/users/dto/user.dto";
 import { IsNotEmpty, IsString } from "class-validator";
+
+import { JournalEntryDto } from "./journal-entry.dto";
+import { UserDto } from "src/users/dto/user.dto";
 
 export class CreateJournalDto {
     @IsString()
     @IsNotEmpty()
-    name: String;
+    name: string;
 
     @IsString()
     @IsNotEmpty()
-    description: String;
+    description: string;
 
-    entries: String[];
+    entries: JournalEntryDto[];
     createdAt: Date;
     lastUpdate: Date;
     owner: UserDto;

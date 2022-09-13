@@ -19,7 +19,7 @@ export class JournalEntriesController {
     }
 
     @Get(":id")
-    async findOne(@Param("id") id: String) {
+    async findOne(@Param("id") id: string) {
         return this.entriesService.findOne(id);
     }
 
@@ -29,7 +29,7 @@ export class JournalEntriesController {
     //   }
 
     @Delete(":id")
-    async delete(@Param("id") id: String) {
+    async delete(@Param("id") id: string) {
         return this.entriesService.delete(id);
     }
 }

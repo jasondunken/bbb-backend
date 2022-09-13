@@ -1,7 +1,7 @@
 export class JournalEntryDto {
-    title: String;
-    description: String;
-    body: String;
+    title: string;
+    description: string;
+    body: string;
     images: [];
     createdAt: Date;
     lastUpdate: Date;

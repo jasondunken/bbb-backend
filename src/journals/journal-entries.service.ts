@@ -19,7 +19,7 @@ export class JournalEntriesService {
         return this.journalEntryModel.find().lean().exec();
     }
 
-    async findOne(id: String) {
+    async findOne(id: string) {
         return this.journalEntryModel.findOne({ _id: id }).exec();
     }
 
@@ -27,7 +27,7 @@ export class JournalEntriesService {
     //     return this.journalModel.replaceOne({ _id: id }, journalDto);
     //   }
 
-    async delete(id: String) {
+    async delete(id: string) {
         const deletedJournal = await this.journalEntryModel.findByIdAndDelete({
             _id: id,
         });

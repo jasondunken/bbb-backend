@@ -6,16 +6,16 @@ export type JournalEntryDocument = JournalEntry & Document;
 @Schema()
 export class JournalEntry {
     @Prop()
-    title: String;
+    title: string;
 
     @Prop()
-    description: String;
+    description: string;
 
     @Prop()
-    body: String;
+    body: string;
 
     @Prop()
-    images: String[];
+    images: string[];
 
     @Prop()
     createdAt: Date;

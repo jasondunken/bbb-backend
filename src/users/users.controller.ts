@@ -19,12 +19,12 @@ export class UsersController {
     }
 
     @Get(":id")
-    async findOne(@Param("id") id: String): Promise<User> {
+    async findOne(@Param("id") id: string): Promise<User> {
         return this.usersService.findOne(id);
     }
 
     @Delete(":id")
-    async delete(@Param("id") id: String) {
+    async delete(@Param("id") id: string) {
         return this.usersService.delete(id);
     }
 }

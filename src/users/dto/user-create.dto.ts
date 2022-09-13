@@ -3,13 +3,13 @@ import { IsEmail, IsNotEmpty, IsString } from "class-validator";
 export class CreateUserDto {
     @IsString()
     @IsNotEmpty()
-    userName: String;
+    userName: string;
 
     @IsEmail()
     @IsNotEmpty()
-    email: String;
+    email: string;
 
     @IsString()
     @IsNotEmpty()
-    password: String;
+    password: string;
 }

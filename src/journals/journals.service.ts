@@ -5,7 +5,6 @@ import { Model } from "mongoose";
 
 import { Journal, JournalDocument } from "./schemas/journal.schema";
 import { CreateJournalDto } from "./dto/journal-create.dto";
-import { JournalDto } from "./dto/journal.dto";
 
 @Injectable()
 export class JournalsService {
@@ -20,15 +19,15 @@ export class JournalsService {
         return this.journalModel.find().lean().exec();
     }
 
-    async findOne(id: String) {
+    async findOne(id: string) {
         return this.journalModel.findOne({ _id: id }).exec();
     }
 
     //   async update(id: String, journalDto: JournalDto): Promise<Journal> {
-    //     return this.journalModel.replaceOne({ _id: id }, journalDto);
+    //     return this.journalModel.replaceOne({ _id: id }, { $set: journalDto });
     //   }
 
-    async delete(id: String) {
+    async delete(id: string) {
         const deletedJournal = await this.journalModel.findByIdAndDelete({
             _id: id,
         });
