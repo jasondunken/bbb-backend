@@ -24,7 +24,7 @@ export class JournalsController {
     }
 
     //   @Put()
-    //   async updateJournal(@Body() id: String, @Body() journal: JournalDto) {
+    //   async updateJournal(@Param() id: String, @Body() journal: JournalDto) {
     //     return this.journalService.update(id, journal);
     //   }
 
