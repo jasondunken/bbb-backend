@@ -1,4 +1,5 @@
 import { Module } from "@nestjs/common";
+import { ConfigModule } from "@nestjs/config";
 import { MongooseModule } from "@nestjs/mongoose";
 
 import { AppController } from "./app.controller";
@@ -8,7 +9,7 @@ import { JournalsModule } from "./journals/journals.module";
 import { UsersModule } from "./users/users.module";
 
 @Module({
-    imports: [MongooseModule.forRoot("mongodb://localhost/testdb"), JournalsModule, UsersModule],
+    imports: [ConfigModule.forRoot(), MongooseModule.forRoot(process.env.MONGO_URL), JournalsModule, UsersModule],
     controllers: [AppController],
     providers: [AppService],
 })
