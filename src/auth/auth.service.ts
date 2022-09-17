@@ -1,13 +1,15 @@
 import { ForbiddenException, Injectable } from "@nestjs/common";
-import { InjectModel } from "@nestjs/mongoose";
+import { JwtService } from "@nestjs/jwt";
 
+import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
 
 import * as argon from "argon2";
+
 import { CreateUserDto } from "src/users/dto/user-create.dto";
 import { User, UserDocument } from "src/users/schemas/user.schema";
-import { JwtService } from "@nestjs/jwt";
 import { LoginDto } from "./dto/login.dto";
+import { Role } from "./roles/role.enum";
 
 @Injectable()
 export class AuthService {
@@ -19,6 +21,7 @@ export class AuthService {
             userName: createUserDto.userName,
             email: createUserDto.email,
             password: hash,
+            roles: [Role.User],
         });
         return createdUser._id;
     }

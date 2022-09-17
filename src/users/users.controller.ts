@@ -1,11 +1,14 @@
 import { Controller, Get, Delete, Param, UseGuards } from "@nestjs/common";
 
-import { JwtGuard } from "src/auth/guards";
-
 import { UsersService } from "./users.service";
 import { User } from "./schemas/user.schema";
 
-@UseGuards(JwtGuard)
+import { JwtGuard, RolesGuard } from "src/auth/guards";
+import { Roles } from "src/auth/roles/roles.decorator";
+import { Role } from "src/auth/roles/role.enum";
+
+@Roles(Role.Admin)
+@UseGuards(JwtGuard, RolesGuard)
 @Controller("users")
 export class UsersController {
     constructor(private readonly usersService: UsersService) {}
