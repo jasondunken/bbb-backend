@@ -1,6 +1,8 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose";
 
+import { ImageData } from "../dto/image-data.dto";
+
 export type ImageDocument = Image & Document;
 
 @Schema()
@@ -11,11 +13,8 @@ export class Image {
     @Prop()
     description: string;
 
-    @Prop()
-    img: {
-        data: Buffer;
-        contentType: string;
-    };
+    @Prop({})
+    img: ImageData;
 }
 
 export const ImageSchema = SchemaFactory.createForClass(Image);

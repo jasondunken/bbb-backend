@@ -26,7 +26,7 @@ export class AuthService {
         return createdUser._id;
     }
 
-    async login(loginDto: LoginDto): Promise<{ JWT: string }> {
+    async login(loginDto: LoginDto): Promise<{ JWT: string; username: string }> {
         const user = await this.userModel.findOne({ email: loginDto.email });
         if (!user) {
             throw new ForbiddenException("Credentials invalid");
@@ -36,7 +36,7 @@ export class AuthService {
             throw new ForbiddenException("Credentials invalid");
         }
         const jwt = await this.signToken(user._id, user.email);
-        return { JWT: jwt };
+        return { JWT: jwt, username: user.userName };
     }
 
     async signToken(id: string, email: string): Promise<string> {
