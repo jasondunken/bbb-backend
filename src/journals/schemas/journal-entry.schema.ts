@@ -6,6 +6,9 @@ export type JournalEntryDocument = JournalEntry & Document;
 @Schema()
 export class JournalEntry {
     @Prop()
+    journalId: string;
+
+    @Prop()
     title: string;
 
     @Prop()
