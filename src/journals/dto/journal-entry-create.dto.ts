@@ -3,6 +3,10 @@ import { IsArray, IsNotEmpty, IsString } from "class-validator";
 export class CreateJournalEntryDto {
     @IsString()
     @IsNotEmpty()
+    journalId: string;
+
+    @IsString()
+    @IsNotEmpty()
     title: string;
 
     @IsString()
@@ -13,6 +17,6 @@ export class CreateJournalEntryDto {
     @IsNotEmpty()
     body: string;
 
-    @IsArray()
-    images: [];
+    // @IsArray()
+    // images: [];
 }

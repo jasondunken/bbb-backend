@@ -22,7 +22,7 @@ export class AuthController {
 
     @Get("roles")
     async getRoles(): Promise<any> {
-        return Role;
+        return { roles: ["admin", "user"] };
     }
     @Post("reset")
     async resetPassword(@Body() email: string): Promise<any> {
