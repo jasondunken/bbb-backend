@@ -11,10 +11,6 @@ export class CreateJournalEntryDto {
 
     @IsString()
     @IsNotEmpty()
-    description: string;
-
-    @IsString()
-    @IsNotEmpty()
     body: string;
 
     // @IsArray()
