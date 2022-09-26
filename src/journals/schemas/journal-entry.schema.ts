@@ -28,3 +28,11 @@ export class JournalEntry {
 }
 
 export const JournalEntrySchema = SchemaFactory.createForClass(JournalEntry);
+JournalEntrySchema.pre("save", function (next) {
+    if (this.isNew) {
+        this.createdAt = new Date();
+    } else {
+        this.lastUpdate = new Date();
+    }
+    next();
+});
