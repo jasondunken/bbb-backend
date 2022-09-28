@@ -1,9 +1,9 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Post } from "@nestjs/common";
+import { Body, Controller, Get, HttpCode, HttpStatus, Post, UseGuards } from "@nestjs/common";
 
 import { AuthService } from "./auth.service";
 import { CreateUserDto } from "src/users/dto/user-create.dto";
 import { LoginDto } from "./dto/login.dto";
-import { Role } from "./roles/role.enum";
+import { JwtGuard } from "./guards";
 
 @Controller()
 export class AuthController {
@@ -20,10 +20,12 @@ export class AuthController {
         return this.auth.login(loginDto);
     }
 
+    @UseGuards(JwtGuard)
     @Get("roles")
     async getRoles(): Promise<any> {
         return { roles: ["admin", "user"] };
     }
+
     @Post("reset")
     async resetPassword(@Body() email: string): Promise<any> {
         return { message: "password reset not yet implemented" };
