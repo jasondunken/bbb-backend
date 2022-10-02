@@ -25,9 +25,10 @@ export class JournalEntriesController {
         return this.entriesService.getAll();
     }
 
+    // gets all entries for a journalId
     @Get(":id")
-    async findOne(@Param("id") id: string) {
-        return this.entriesService.findOne(id);
+    async findAllJournalEntries(@Param("id") id: string) {
+        return this.entriesService.findAllJournalEntries(id);
     }
 
     // @Roles(Role.Admin)

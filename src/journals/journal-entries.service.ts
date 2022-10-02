@@ -23,6 +23,10 @@ export class JournalEntriesService {
         return this.journalEntryModel.findOne({ _id: id }).exec();
     }
 
+    async findAllJournalEntries(journalId: string) {
+        return this.journalEntryModel.find({ journalId: journalId }).sort("-createdAt");
+    }
+
     //   async update(id: String, journalEntryDto: JournalEntryDto): Promise<JournalEntry> {
     //     return this.journalModel.replaceOne({ _id: id }, journalDto);
     //   }
