@@ -1,6 +1,8 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose";
 
+import * as sanitizeHtml from "sanitize-html";
+
 export type JournalEntryDocument = JournalEntry & Document;
 
 @Schema()
@@ -34,5 +36,6 @@ JournalEntrySchema.pre("save", function (next) {
     } else {
         this.lastUpdate = new Date();
     }
+    this.body = sanitizeHtml(this.body);
     next();
 });
