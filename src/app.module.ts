@@ -9,11 +9,20 @@ import { AppService } from "./app.service";
 import { AuthModule } from "./auth/auth.module";
 
 import { JournalsModule } from "./journals/journals.module";
-import { ImagesModule } from './images/images.module';
+import { ImagesModule } from "./images/images.module";
+import { MailModule } from "./mail/mail.module";
+import { MailService } from "./mail/mail.service";
 
 @Module({
-    imports: [ConfigModule.forRoot(), MongooseModule.forRoot(process.env.MONGO_URL), JournalsModule, AuthModule, ImagesModule],
+    imports: [
+        ConfigModule.forRoot(),
+        MongooseModule.forRoot(process.env.MONGO_URL),
+        JournalsModule,
+        AuthModule,
+        ImagesModule,
+        MailModule,
+    ],
     controllers: [AppController],
-    providers: [AppService],
+    providers: [AppService, MailService],
 })
 export class AppModule {}
