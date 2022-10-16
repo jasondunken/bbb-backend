@@ -16,7 +16,6 @@ export class JournalEntriesController {
     @UseGuards(JwtGuard, RolesGuard)
     @Post()
     async createEntry(@Body() entry: CreateJournalEntryDto) {
-        console.log("entry: ", entry);
         return this.entriesService.create(entry);
     }
 

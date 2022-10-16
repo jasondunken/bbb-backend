@@ -17,6 +17,10 @@ export class ImagesService {
         return this.imageModel.findOne({ _id: id });
     }
 
+    async getAll(): Promise<Image[]> {
+        return this.imageModel.find().lean().exec();
+    }
+
     async delete(id: string): Promise<Image> {
         return this.imageModel.findOneAndDelete({ _id: id });
     }
