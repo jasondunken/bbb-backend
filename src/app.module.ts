@@ -15,7 +15,7 @@ import { MailService } from "./mail/mail.service";
 
 @Module({
     imports: [
-        ConfigModule.forRoot(),
+        ConfigModule.forRoot({ isGlobal: true }),
         MongooseModule.forRoot(process.env.MONGO_URL),
         JournalsModule,
         AuthModule,
