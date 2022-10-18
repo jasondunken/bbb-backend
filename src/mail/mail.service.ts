@@ -1,19 +1,30 @@
 import { MailerService } from "@nestjs-modules/mailer";
 import { Injectable } from "@nestjs/common";
-import { UserDto } from "../users/dto/user.dto";
+import { User } from "src/users/schemas/user.schema";
 
 @Injectable()
 export class MailService {
     constructor(private mailerService: MailerService) {}
 
-    async sendUserConfirmation(user: UserDto, token: string) {
-        const url = `example.com/auth/confirm?token=${token}`;
-
+    async sendUserConfirmation(user: User, token: string) {
+        const url = `bitbytebytes.io/auth/confirm?token=${token}`;
         await this.mailerService.sendMail({
             to: user.email,
-            // from: '"Support Team" <support@example.com>', // override default from
-            subject: "Welcome to Nice App! Confirm your Email",
+            subject: "Welcome to BitByteBytes.io! Confirm your Email",
             template: "./confirmation",
+            context: {
+                name: user.userName,
+                url,
+            },
+        });
+    }
+
+    async sendPasswordReset(user: User, token: string) {
+        const url = `bitbytebytes.io/auth/reset?token=${token}`;
+        await this.mailerService.sendMail({
+            to: user.email,
+            subject: "Password reset link",
+            template: "./passwordReset",
             context: {
                 name: user.userName,
                 url,

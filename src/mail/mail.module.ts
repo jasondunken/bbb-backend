@@ -8,8 +8,9 @@ import { join } from "path";
     imports: [
         MailerModule.forRoot({
             transport: {
-                host: process.env.REGISTRATION_HOST,
-                secure: false,
+                host: "smtp.dreamhost.com",
+                secure: true,
+                port: 465,
                 auth: {
                     user: process.env.REGISTRATION_EMAIL,
                     pass: process.env.REGISTRATION_PW,
@@ -19,7 +20,7 @@ import { join } from "path";
                 from: '"No Reply" <noreply@bitbytebytes.io>',
             },
             template: {
-                dir: join(__dirname, "templates"),
+                dir: join(__dirname, "mail/templates"),
                 adapter: new HandlebarsAdapter(),
                 options: {
                     strict: true,
