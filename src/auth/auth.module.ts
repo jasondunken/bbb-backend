@@ -10,6 +10,7 @@ import { User, UserSchema } from "src/users/schemas/user.schema";
 import { UsersModule } from "src/users/users.module";
 import { JwtStrategy } from "./strategy";
 import { RolesGuard } from "./guards";
+import { MailService } from "src/mail/mail.service";
 
 @Module({
     imports: [
@@ -18,6 +19,6 @@ import { RolesGuard } from "./guards";
         UsersModule,
     ],
     controllers: [AuthController],
-    providers: [AuthService, JwtStrategy, RolesGuard],
+    providers: [AuthService, JwtStrategy, RolesGuard, MailService],
 })
 export class AuthModule {}
