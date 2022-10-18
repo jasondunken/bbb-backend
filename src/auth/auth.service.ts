@@ -45,7 +45,7 @@ export class AuthService {
             email,
         };
         return this.jwt.signAsync(payload, {
-            expiresIn: "15m",
+            expiresIn: "360m",
             secret: process.env.JWT_SECRET,
         });
     }
