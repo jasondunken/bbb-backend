@@ -17,6 +17,12 @@ export class User {
 
     @Prop()
     roles: Role[];
+
+    @Prop()
+    activated: boolean;
+
+    @Prop()
+    banned: boolean;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
