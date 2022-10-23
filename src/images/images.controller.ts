@@ -20,8 +20,8 @@ export class ImagesController {
         return this.imagesService.create(image);
     }
 
-    @Get(":id")
-    async findOne(@Param("id") id: string): Promise<Image> {
+    @Get(":tag")
+    async findOne(@Param("tag") id: string): Promise<Image> {
         return this.imagesService.findOne(id);
     }
 

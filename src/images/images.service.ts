@@ -13,8 +13,8 @@ export class ImagesService {
         return this.imageModel.create(image);
     }
 
-    async findOne(id: string): Promise<Image> {
-        return this.imageModel.findOne({ _id: id });
+    async findOne(tag: string): Promise<Image> {
+        return this.imageModel.findOne({ tag: tag });
     }
 
     async getAll(): Promise<Image[]> {
