@@ -7,7 +7,7 @@ export class MailService {
     constructor(private mailerService: MailerService) {}
 
     async sendUserConfirmation(user: User, token: string) {
-        const url = `bitbytebytes.io/auth/confirm?token=${token}`;
+        const url = `bitbytebytes.io/validate-user?token=${token}`;
         await this.mailerService.sendMail({
             to: user.email,
             subject: "Welcome to BitByteBytes.io! Confirm your Email",
@@ -20,7 +20,7 @@ export class MailService {
     }
 
     async sendPasswordReset(user: User, token: string) {
-        const url = `bitbytebytes.io/auth/reset?token=${token}`;
+        const url = `bitbytebytes.io/password-reset?token=${token}`;
         await this.mailerService.sendMail({
             to: user.email,
             subject: "Password reset link",
