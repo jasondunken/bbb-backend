@@ -1,7 +1,7 @@
 import { Controller, Delete, Get, Param, Post, UseGuards } from "@nestjs/common";
 
 import { ImagesService } from "./images.service";
-import { CreateImageDto } from "./dto/image-create.dto";
+import { ImageDto } from "./dto/image.dto";
 import { Image } from "./schemas/image.schema";
 
 import { JwtGuard, RolesGuard } from "src/auth/guards";
@@ -16,7 +16,7 @@ export class ImagesController {
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
     @Post()
-    async create(image: CreateImageDto): Promise<Image> {
+    async create(image: ImageDto): Promise<Image> {
         return this.imagesService.create(image);
     }
 
