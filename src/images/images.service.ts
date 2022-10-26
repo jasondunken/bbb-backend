@@ -10,11 +10,12 @@ export class ImagesService {
     constructor(@InjectModel(Image.name) private imageModel: Model<ImageDocument>) {}
 
     async create(image: ImageDto): Promise<Image> {
-        return this.imageModel.create(image);
+        const createdImage = await this.imageModel.create(image);
+        return createdImage;
     }
 
     async findOne(tag: string): Promise<Image> {
-        return this.imageModel.findOne({ tag: tag });
+        return this.imageModel.findOne({ tag: tag }).exec();
     }
 
     async getAll(): Promise<Image[]> {

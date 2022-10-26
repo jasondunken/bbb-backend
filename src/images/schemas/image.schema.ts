@@ -8,7 +8,7 @@ export class Image {
     @Prop()
     tag: string;
 
-    @Prop({})
+    @Prop()
     imageData: string;
 }
 
