@@ -61,11 +61,11 @@ export class ImagesController {
         return this.imagesService.delete(id);
     }
 
-    @Post()
+    @Post("image")
     @UseInterceptors(
         FileInterceptor("image", {
             storage: diskStorage({
-                destination: "./files",
+                destination: "./appdata/images",
                 filename: editFileName,
             }),
             fileFilter: imageFileFilter,
@@ -79,11 +79,11 @@ export class ImagesController {
         return response;
     }
 
-    @Post("multiple")
+    @Post("image/multiple")
     @UseInterceptors(
         FilesInterceptor("image", 20, {
             storage: diskStorage({
-                destination: "./files",
+                destination: "./appdata/images",
                 filename: editFileName,
             }),
             fileFilter: imageFileFilter,
@@ -101,8 +101,8 @@ export class ImagesController {
         return response;
     }
 
-    @Get(":imgpath")
+    @Get("image/:imgpath")
     seeUploadedFile(@Param("imgpath") image, @Res() res) {
-        return res.sendFile(image, { root: "./files" });
+        return res.sendFile(image, { root: "./appdata/images" });
     }
 }
