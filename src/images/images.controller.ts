@@ -29,9 +29,8 @@ import { diskStorage } from "multer";
 export class ImagesController {
     constructor(private readonly imagesService: ImagesService) {}
 
-    @UseGuards(JwtGuard)
     @Roles(Role.Admin)
-    @UseGuards(RolesGuard)
+    @UseGuards(JwtGuard, RolesGuard)
     @Post()
     async create(@Body() image: any) {
         return this.imagesService.create(image);
@@ -45,17 +44,15 @@ export class ImagesController {
         return `data:image/png;base64, ${foundImage.imageData}`;
     }
 
-    @UseGuards(JwtGuard)
     @Roles(Role.Admin)
-    @UseGuards(RolesGuard)
+    @UseGuards(JwtGuard, RolesGuard)
     @Get()
     async getAll(): Promise<Image[]> {
         return this.imagesService.getAll();
     }
 
-    @UseGuards(JwtGuard)
     @Roles(Role.Admin)
-    @UseGuards(RolesGuard)
+    @UseGuards(JwtGuard, RolesGuard)
     @Delete(":id")
     async delete(@Param("id") id: string) {
         return this.imagesService.delete(id);
