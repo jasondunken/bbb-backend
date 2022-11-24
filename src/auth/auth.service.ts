@@ -57,7 +57,9 @@ export class AuthService {
         });
     }
 
-    confirmUserEmail(token: string) {}
+    confirmUserEmail(token: string) {
+        const user = this.jwt.decode(token);
+    }
 
     resetUserPassword(token: string) {}
 
