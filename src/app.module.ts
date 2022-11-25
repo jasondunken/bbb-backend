@@ -12,6 +12,7 @@ import { JournalsModule } from "./journals/journals.module";
 import { ImagesModule } from "./images/images.module";
 import { MailModule } from "./mail/mail.module";
 import { MailService } from "./mail/mail.service";
+import { CommentsModule } from './comments/comments.module';
 
 @Module({
     imports: [
@@ -21,6 +22,7 @@ import { MailService } from "./mail/mail.service";
         AuthModule,
         ImagesModule,
         MailModule,
+        CommentsModule,
     ],
     controllers: [AppController],
     providers: [AppService, MailService],
