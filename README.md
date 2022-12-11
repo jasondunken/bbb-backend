@@ -1,9 +1,7 @@
 # bbb-backend
 
-node.js backend for bitbytebytes.io
+[node.js](https://nodejs.org) backend for [bitbytebytes.io](http://bitbytebytes.io)
 
-built with
+## A blog framework with user authentication and authorization
 
-    nest.js
-
-    mongoDB
+built with [nest.js](https://nestjs.com) and [mongoDB](https://mongodb.com)
