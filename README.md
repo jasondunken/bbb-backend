@@ -10,5 +10,6 @@ User activation and password reset emails with [nodemailer](https://nodemailer.c
 
 -   Journal and Journal entry API
 -   Comment sections
--   User account dashboard (coming soon)
+-   User account management API (coming soon)
+-   Admin site management API (coming soon)
 -   High-scores API (coming soon)
