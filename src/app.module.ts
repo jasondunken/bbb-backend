@@ -12,7 +12,13 @@ import { JournalsModule } from "./journals/journals.module";
 import { ImagesModule } from "./images/images.module";
 import { MailModule } from "./mail/mail.module";
 import { MailService } from "./mail/mail.service";
-import { CommentsModule } from './comments/comments.module';
+import { CommentsModule } from "./comments/comments.module";
+
+import { ServeStaticModule } from "@nestjs/serve-static";
+import { join } from "path";
+
+import { APP_FILTER } from "@nestjs/core";
+import { NotFoundExceptionFilter } from "./auth/filters/notfound.filter";
 
 @Module({
     imports: [
@@ -23,8 +29,19 @@ import { CommentsModule } from './comments/comments.module';
         ImagesModule,
         MailModule,
         CommentsModule,
+        ServeStaticModule.forRoot({
+            rootPath: join(__dirname, "..", "src/_static/bitbytebytes.io"),
+            renderPath: "/",
+        }),
     ],
     controllers: [AppController],
-    providers: [AppService, MailService],
+    providers: [
+        AppService,
+        MailService,
+        {
+            provide: APP_FILTER,
+            useClass: NotFoundExceptionFilter,
+        },
+    ],
 })
 export class AppModule {}

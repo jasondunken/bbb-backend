@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Oops</title>
+        <style>
+            @font-face {
+                font-family: ElfBoy;
+                src: url("../../css/font/Elfboyclassic.ttf");
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: sans-serif;
+                background-color: cadetblue;
+            }
+
+            .content {
+                height: 100vh;
+                display: grid;
+                gap: 5px;
+                place-content: center;
+                user-select: none;
+            }
+
+            .item {
+                text-align: center;
+                display: grid;
+                place-content: center;
+            }
+
+            .button {
+                width: 128px;
+                height: 31px;
+                padding: 2px 8px;
+                display: grid;
+                place-content: center;
+                border-radius: 8px;
+                border: 3px solid rgb(73, 72, 32);
+                cursor: pointer;
+            }
+
+            .button:hover {
+                background-color: hsl(182, 25%, 60%);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <div class="item">
+                <h1>OOPS...404</h1>
+            </div>
+            <div class="item">
+                <div class="button" onclick="history.back()">back</div>
+            </div>
+        </div>
+    </body>
+</html>
