@@ -2,6 +2,8 @@
 
 [node.js](https://nodejs.org) backend for [bitbytebytes.io](http://bitbytebytes.io)
 
+## Serving js and angular front ends and static files
+
 ## Backend framework with user authentication and authorization
 
 Built with [nest.js](https://nestjs.com) and [mongoDB](https://mongodb.com)
