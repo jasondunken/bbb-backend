@@ -33,6 +33,7 @@ import { NotFoundExceptionFilter } from "./auth/filters/notfound.filter";
             password: process.env.MYSQL_PASS,
             database: process.env.MYSQL_DB_NAME,
             entities: [],
+            // Setting synchronize: true shouldn't be used in production - otherwise you can lose production data. 
             synchronize: true,
         }),
         JournalsModule,
